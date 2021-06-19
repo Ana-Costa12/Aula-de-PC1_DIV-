@@ -6,8 +6,8 @@ namespace Aula_de_PC1_DIV_
     {
         static void Main(string[] args)
         {
-            double Numerador, Denominador;
-            double Quociente = Numerador / Denominador;
+            double numerador;
+            double denominador;
 
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine("--------------------------------");
@@ -17,24 +17,31 @@ namespace Aula_de_PC1_DIV_
 
             Console.WriteLine("Digite o valor do numerador:");
             Console.ForegroundColor = ConsoleColor.Green;
-            Numerador = Convert.ToInt16(Console.ReadLine());
+            numerador = double.Parse(Console.ReadLine());
             Console.ResetColor();
             Console.WriteLine("Agora digite o valor do denominador:");
-            Denominador = Convert.ToInt32(Console.ReadLine());
-
-            if(Denominador > 0)
+            denominador = double.Parse(Console.ReadLine());
+            double quociente = numerador / denominador;
+            
+            if (denominador > 0 )
             {
-    
-                Console.WriteLine($"{Numerador} dividio por {Denominador} é igual a {Quociente}");
-            }
-
-            else
-            {
-                Console.WriteLine($"O número {Numerador} não pode ser dividido por 0 (Zero).\nReinicie o programa!\n\nTecle Enter para sair.");
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
+                Console.WriteLine($"{numerador} dividido por {denominador} é igual a: {quociente}");
+                Console.ResetColor();
+                Console.WriteLine("\nObrigada! Tecle ENTER para sair:");
                 Console.ReadLine();
                 Console.Clear();
-
             }
+            else
+            {
+               Console.ForegroundColor = ConsoleColor.DarkRed;
+               Console.WriteLine("O DENOMINADOR DEVE SER MAIOR QUE ZERO.");
+               Console.ResetColor();
+               Console.WriteLine("Pressione qualquer botão para fechar o programa.");
+               Console.ReadKey();
+               Console.Clear();
+            }
+
         }
     }
 }
